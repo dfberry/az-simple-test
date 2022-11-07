@@ -3,15 +3,27 @@ require('dotenv').config()
 
 const keyVaultName = process.env.AZURE_KEY_VAULT_NAME;
 
+async function callLib(secretName){
+        const kvSecretMgr = new KeyVaultSecret(keyVaultName);
+    
+        const secretResponse = await kvSecretMgr.getSecret(secretName);
+    
+        console.log("after get secret");
+    
+        return secretResponse;
+}
+
 async function getKeyVaultSecret(){
 
     // expect Key Vault Secrets User RBAC role
 
     try{
-    const kvSecretMgr = new KeyVaultSecret(keyVaultName);
 
     const secretName = "test";
-    const secretValue = await kvSecretMgr.getSecret(secretName);
+
+    const secretValue = await callLib(secretName);
+
+    console.log("after gcallLib");
 
     console.log(secretValue);
     } catch(err){
