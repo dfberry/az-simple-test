@@ -4,13 +4,25 @@
   "description": "Verify install and usage of @azberry/az-simple for JavaScript/Common.",
   "main": "index.js",
   "scripts": {
+    "build:all": "npm run format && npm run lint",
+    "format": "prettier --write src/**/*.js",
+    "lint": "eslint src/**/*.js --fix",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug:test": "node translator.js",
+    "test": "node src/index.js"
   },
   "author": "Dina Berry (dfberry)",
   "license": "ISC",
   "dependencies": {
-    "@azberry/az-simple": "^0.0.4",
+    "@azberry/az-simple": "^0.0.5",
     "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.1"
   }
 }

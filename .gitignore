@@ -104,4 +104,7 @@ dist
 .tern-port
 
 # Authentication for local development
-service-principal.json
+**/**/service-principal.json
+
+# MacOs
+.DS_Store
