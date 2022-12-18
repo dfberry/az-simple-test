@@ -1,20 +1,19 @@
 {
   "name": "@azberry/az-simple-test",
-  "version": "0.0.1",
+  "version": "0.1.6",
   "description": "Verify install and usage of @azberry/az-simple for JavaScript/Common.",
   "main": "index.js",
   "scripts": {
-    "build:all": "npm run format && npm run lint",
+    "build": "npm run format && npm run lint",
     "format": "prettier --write src/**/*.js",
     "lint": "eslint src/**/*.js --fix",
-    "start": "node index.js",
-    "debug:test": "node translator.js",
-    "test": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest"
   },
   "author": "Dina Berry (dfberry)",
   "license": "ISC",
   "dependencies": {
-    "@azberry/az-simple": "^0.0.5",
+    "@azberry/az-simple": "^0.1.6",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
