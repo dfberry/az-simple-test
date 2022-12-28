@@ -13,7 +13,7 @@
   "author": "Dina Berry (dfberry)",
   "license": "ISC",
   "dependencies": {
-    "@azberry/az-simple": "^0.1.6",
+    "@azberry/az-simple": "^0.2.0",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {

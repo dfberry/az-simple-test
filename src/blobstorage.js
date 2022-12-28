@@ -8,7 +8,7 @@ async function getJson() {
   const client = new BlobStorage(name, key);
 
   // expect json arry
-  const json = await client.getJsonDataFromBlob(url);
+  const { json } = await client.getJsonDataFromBlob(url);
 
   return json;
 }
