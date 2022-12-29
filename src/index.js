@@ -2,7 +2,7 @@ require('dotenv').config();
 const azSimple = require('@azberry/az-simple');
 const { getSecret } = require('./keyvault');
 const { getTranslation } = require('./translator');
-const { getJson } = require('./blobstorage');
+const { getJson, listBlobs } = require('./blobstorage');
 const { getNewDatabaseAndContainer } = require('./cosmos-db-nosql');
 const { insertArray } = require('./cosmos-db-mongodb');
 
@@ -18,13 +18,17 @@ async function main() {
   const { value } = await getSecret();
   console.log(`secret: ${value}`);
 
-  // // Translator
+  // Translator
   const translation = await getTranslation();
   console.log(`translation: ${JSON.stringify(translation)}`);
 
-  // // Blob Storage
+  // Blob Storage
   const json = await getJson();
   console.log(`json: ${JSON.stringify(json)}`);
+
+  // List blobs in container
+  const list = await listBlobs();
+  console.log(JSON.stringify(list));
 
   // Cosmos DB NoSQL (DocumentDb)
   await getNewDatabaseAndContainer();
